@@ -10,11 +10,11 @@
 
       <select [(ngModel)]="pendingOption" class="control--select">
         <option value="">Seleccione consulta</option>
-        <option value="translations">Traducciones</option>
-        <option value="cast">Actores</option>
-        <option value="seasons">Temporadas</option>
-        <option value="images">Imágenes</option>
-        <option value="videos">Videos</option>
+        <option value="the-wire/translations">Traducciones</option>
+        <option value="the-wire/cast">Actores</option>
+        <option value="the-wire/seasons">Temporadas</option>
+        <option value="the-wire/images">Imágenes</option>
+        <option value="the-wire/videos">Videos</option>
       </select>
 
       <button (click)="search()" class="control--button">Buscar</button>
@@ -27,7 +27,7 @@
 
       <!-- TRANSLATIONS -->
       <section
-        *ngIf="optionSelected === 'translations' && result?.translations"
+        *ngIf="optionSelected === 'the-wire/translations' && result?.translations"
         class="block block--translations"
       >
         <h3 class="block__title">Traducciones</h3>
@@ -47,7 +47,7 @@
 
       <!-- ACTORES -->
       <section
-        *ngIf="optionSelected === 'cast' && result?.cast"
+        *ngIf="optionSelected === 'the-wire/cast' && result?.cast"
         class="block block--cast"
       >
         <h3 class="block__title">Actores</h3>
@@ -68,7 +68,7 @@
 
       <!-- TEMPORADAS -->
       <section
-        *ngIf="optionSelected === 'seasons' && result?.seasons"
+        *ngIf="optionSelected === 'the-wire/seasons' && result?.seasons"
         class="block block--seasons"
       >
         <h3 class="block__title">Temporadas</h3>
@@ -97,7 +97,7 @@
 
       <!-- IMÁGENES -->
       <section
-        *ngIf="optionSelected === 'images' && result?.backdrops"
+        *ngIf="optionSelected === 'the-wire/images' && result?.backdrops"
         class="block block--images"
       >
         <h3 class="block__title">Imágenes</h3>
@@ -114,7 +114,7 @@
 
       <!-- VIDEOS -->
       <section
-        *ngIf="optionSelected === 'videos' && result?.results"
+        *ngIf="optionSelected === 'the-wire/videos' && result?.results"
         class="block block--videos"
       >
         <h3 class="block__title">Trailers</h3>

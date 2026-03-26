@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { TmdbService } from './tmdb.service';
+import { TmdbService } from './services/tmdb.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-root',
@@ -24,7 +25,6 @@ export class AppComponent {
   }
 
   search() {
-
     if (!this.pendingOption) {
       alert("Seleccione un endpoint");
       return;
@@ -32,13 +32,16 @@ export class AppComponent {
 
     this.tmdbService
       .getEndpoint(this.pendingOption)
-      .subscribe(data => {
-        console.log(data)
-        this.result = data;
-        // Actualizamos la opción realmente activa solo cuando la búsqueda termina
-        this.optionSelected = this.pendingOption;
+      .subscribe({
+        next: (data) => {
+          console.log(data);
+          this.result = data;
+          this.optionSelected = this.pendingOption;
+        },
+        error: (err) => {
+          console.error(err);
+          alert("Error al consultar el API 💀");
+        }
       });
-
   }
-
 }
